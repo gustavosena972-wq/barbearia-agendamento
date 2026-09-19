@@ -21,7 +21,17 @@ Escopo do relatório: **fases 1 + 2 + 3**, **sem pagamento online**.
 - Ações da IA registradas; barbeiro pode **desfazer**
 - Service role só em Edge Functions
 
+## Site online (GitHub Pages)
+
+Depois do deploy: **https://gustavosena972-wq.github.io/barbearia-agendamento/**
+
+Secrets necessários no repo (Settings → Secrets → Actions):
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_ANON_KEY`
+- `VITE_VAPID_PUBLIC_KEY` (opcional)
+
 ## Pronto para uso (piloto)
+
 
 Depois do wizard:
 

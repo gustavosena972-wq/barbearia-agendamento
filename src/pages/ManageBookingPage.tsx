@@ -198,8 +198,8 @@ export function ManageBookingPage() {
           <strong>{format(parseISO(ag.inicio), "EEEE, dd/MM/yyyy 'às' HH:mm", { locale: ptBR })}</strong>
         </p>
         <p style={{ color: 'var(--ink-muted)' }}>
-          {ag.duracao_min} min
-          {ag.exibir_precos ? ` · ${moneyBRL(Number(ag.preco))}` : ''} · {ag.cliente_nome}
+          {ag.exibir_precos ? `${moneyBRL(Number(ag.preco))} · ` : ''}
+          {ag.cliente_nome}
         </p>
 
         {ag.status !== 'cancelado' && mode === 'view' ? (

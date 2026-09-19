@@ -6,6 +6,7 @@ import { supabase, supabaseConfigured } from '../lib/supabase'
 import { formatPhoneDisplay, isValidBrPhone, maskPhoneInput, normalizePhone } from '../lib/phone'
 import { formatTime, mapRpcError, moneyBRL } from '../lib/format'
 import { upcomingDates } from '../lib/dates'
+import { appHref } from '../lib/appUrl'
 import type { CatalogoPublico, Slot } from '../types/database'
 import { EmptyState, Spinner } from '../components/ui'
 
@@ -218,10 +219,6 @@ export function BookingPage() {
                   }}
                 >
                   <strong>{s.nome}</strong>
-                  <span>
-                    {s.duracao_min} min
-                    {shop.exibir_precos ? ` · ${moneyBRL(Number(s.preco))}` : ''}
-                  </span>
                 </button>
               ))}
             </div>
@@ -380,7 +377,7 @@ export function BookingPage() {
                 type="button"
                 className="btn btn-secondary"
                 onClick={async () => {
-                  const link = `${window.location.origin}/agendamento/${result.id}/${result.manage_token}`
+                  const link = appHref(`/agendamento/${result.id}/${result.manage_token}`)
                   try {
                     await navigator.clipboard.writeText(link)
                     setError(null)
